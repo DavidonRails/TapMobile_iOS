@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="efM-vT-hc6">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Search View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="SearchViewController" customModule="YoutubeSearch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uC0-Op-p1X">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="o5v-0y-ZPg">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="h7v-UW-TYy"/>
+                                        </constraints>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="zOM-w3-HCV">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="768"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <prototypes>
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VideoTableViewCell" id="5ZQ-hq-keo" customClass="VideoTableViewCell" customModule="YoutubeSearch" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="44.5" width="414" height="322.5"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5ZQ-hq-keo" id="9sM-52-spM">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="322.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="16P-Dc-lkp">
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="310.5"/>
+                                                            <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="16P-Dc-lkp" secondAttribute="height" multiplier="4:3" id="ZJC-s9-MQF"/>
+                                                            </constraints>
+                                                            <wkWebViewConfiguration key="configuration">
+                                                                <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                                                <wkPreferences key="preferences"/>
+                                                            </wkWebViewConfiguration>
+                                                        </wkWebView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="16P-Dc-lkp" secondAttribute="bottom" constant="12" id="3PS-lb-hnx"/>
+                                                        <constraint firstAttribute="trailing" secondItem="16P-Dc-lkp" secondAttribute="trailing" id="Slb-ty-pfd"/>
+                                                        <constraint firstItem="16P-Dc-lkp" firstAttribute="top" secondItem="9sM-52-spM" secondAttribute="top" id="ZdX-Wv-bPw"/>
+                                                        <constraint firstItem="16P-Dc-lkp" firstAttribute="leading" secondItem="9sM-52-spM" secondAttribute="leading" id="zBt-4o-LfG"/>
+                                                    </constraints>
+                                                </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="webView" destination="16P-Dc-lkp" id="7py-xD-852"/>
+                                                </connections>
+                                            </tableViewCell>
+                                        </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="FII-I7-U7q"/>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="3rf-pO-gez"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="o5v-0y-ZPg" firstAttribute="top" secondItem="uC0-Op-p1X" secondAttribute="top" id="4gC-uy-Sw0"/>
+                                    <constraint firstAttribute="trailing" secondItem="o5v-0y-ZPg" secondAttribute="trailing" id="5Sx-y7-tY2"/>
+                                    <constraint firstAttribute="bottom" secondItem="zOM-w3-HCV" secondAttribute="bottom" id="5kH-vR-JbM"/>
+                                    <constraint firstItem="zOM-w3-HCV" firstAttribute="leading" secondItem="uC0-Op-p1X" secondAttribute="leading" id="Jrr-gQ-d8U"/>
+                                    <constraint firstAttribute="trailing" secondItem="zOM-w3-HCV" secondAttribute="trailing" id="Kpy-6q-6Da"/>
+                                    <constraint firstItem="zOM-w3-HCV" firstAttribute="top" secondItem="o5v-0y-ZPg" secondAttribute="bottom" id="MLP-xe-FwB"/>
+                                    <constraint firstItem="o5v-0y-ZPg" firstAttribute="leading" secondItem="uC0-Op-p1X" secondAttribute="leading" id="PAd-w8-Rp7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uC0-Op-p1X" secondAttribute="bottom" id="0YG-48-uTI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uC0-Op-p1X" secondAttribute="trailing" id="P46-8V-0tt"/>
+                            <constraint firstItem="uC0-Op-p1X" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nDy-h4-HyT"/>
+                            <constraint firstItem="uC0-Op-p1X" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xiz-GR-Dtv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="u2w-v0-Ytp"/>
+                    <connections>
+                        <outlet property="tableView" destination="zOM-w3-HCV" id="MVt-tt-SyF"/>
+                        <outlet property="txtSearch" destination="o5v-0y-ZPg" id="stX-lQ-JO9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="828.98550724637687" y="97.767857142857139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jtv-6x-3ue">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="efM-vT-hc6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Kdt-E0-bq4">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="BRk-Tr-7SB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yuA-Ql-GLO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="100.44642857142857"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
